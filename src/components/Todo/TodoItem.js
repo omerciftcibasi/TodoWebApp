@@ -1,27 +1,31 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const TodoItem = ({ index, todo, updateTodoFn, removeTodoFn }) => {
+const TodoItem = ({
+  todo, updateTodoFn, removeTodoFn
+}) => {
   const removeTodo = () => {
     removeTodoFn(todo);
   };
   const [state, setState] = useState({
-    showDeleteButton : false
+    showDeleteButton: false
   });
 
-  const toggleTodo = () => { 
-    updateTodoFn(todo)
+  const toggleTodo = () => {
+    updateTodoFn(todo);
   };
 
-
-
   return (
-    <div className="d-flex justify-content-between" onMouseOver={(ev) => { setState({    
-      showDeleteButton : true
-    })}}
-    onMouseOut={(ev) => { setState({    
-      showDeleteButton : false
-    })}}
-    
+    <div className="d-flex justify-content-between" onMouseOver={() => {
+      setState({
+        showDeleteButton: true
+      });
+    }}
+    onMouseOut={() => {
+      setState({
+        showDeleteButton: false
+      });
+    }}
+
     >
      <div className="TodoItemWrapper">
           <input
@@ -42,4 +46,3 @@ const TodoItem = ({ index, todo, updateTodoFn, removeTodoFn }) => {
 };
 
 export default TodoItem;
-

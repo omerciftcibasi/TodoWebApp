@@ -1,17 +1,12 @@
 import {
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
   LOGIN_SUCCESS,
-  LOGIN_FAIL,
   LOGOUT,
-  SET_MESSAGE,
-  REFRESH_TOKEN
-} from "./types";
+  REFRESH_TOKEN,
+} from './types';
 
-import TokenService from "../services/token.service";
+import TokenService from '../services/token.service';
 
-
-export const loginSuccess = (data) =>  (dispatch) => {
+export const loginSuccess = (data) => (dispatch) => {
   dispatch({
     type: LOGIN_SUCCESS,
     payload: { user: data },
@@ -19,9 +14,7 @@ export const loginSuccess = (data) =>  (dispatch) => {
   TokenService.setUser(data);
 
   return Promise.resolve();
-
-}
-
+};
 
 export const logout = () => (dispatch) => {
   TokenService.removeUser();
@@ -34,5 +27,5 @@ export const refreshToken = (accessToken) => (dispatch) => {
   dispatch({
     type: REFRESH_TOKEN,
     payload: accessToken,
-  })
-}
+  });
+};

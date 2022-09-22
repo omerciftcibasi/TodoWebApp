@@ -1,31 +1,31 @@
+/* eslint-disable class-methods-use-this */
 class TokenService {
   getLocalRefreshToken() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    return user?.refreshToken;
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user ? user.refreshToken : undefined;
   }
 
   getLocalAccessToken() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    return user?.accessToken;
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user ? user.accessToken : undefined;
   }
 
   updateLocalAccessToken(token) {
-    let user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem('user'));
     user.accessToken = token;
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   getUser() {
-    return JSON.parse(localStorage.getItem("user"));
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   setUser(user) {
-    console.log(JSON.stringify(user));
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   removeUser() {
-    localStorage.removeItem("user");
+    localStorage.removeItem('user');
   }
 }
 

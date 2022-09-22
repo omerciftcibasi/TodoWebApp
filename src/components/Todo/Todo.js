@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-import TodoList from "./TodoList";
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
+import TodoList from './TodoList';
 
 const Todo = (props) => {
-  var currentUser = props.user;
+  const currentUser = props.user;
 
   if (!currentUser) {
     return <Redirect to="/signUp" />;
@@ -16,7 +16,7 @@ const Todo = (props) => {
       <div>
       <span className="Todo-List">
         Todo List
-      </span>  
+      </span>
       <TodoList />
       </div>
 
